@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -35,6 +34,7 @@ public class ScoreManager : MonoBehaviour
 
     public void GameOver()
     {
+        // Berpindah Scene ke Main Menu
         SceneManager.LoadScene(0);
         Debug.Log("You Win");
     }
