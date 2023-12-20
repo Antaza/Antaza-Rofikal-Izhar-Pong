@@ -18,11 +18,16 @@ public class BallControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Ball Speed: " + rig2d.velocity);
+        //Debug.Log("Ball Speed: " + rig2d.velocity);
     }
 
     public void ResetBall()
     {
         transform.position = new Vector3(resetPos.x, resetPos.y, 2);
+    }
+
+    public void ActivePuSu(float magnitude)
+    {
+        rig2d.velocity *= magnitude;
     }
 }

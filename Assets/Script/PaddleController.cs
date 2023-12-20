@@ -50,7 +50,7 @@ public class PaddleController : MonoBehaviour
     void MoveObject(Vector2 movement)
     {
         // Log Debug sebelum memasukan input
-        Debug.Log("Paddle Speed: " + movement);
+        //Debug.Log("Paddle Speed: " + movement);
 
         //transform.Translate(movement * Time.deltaTime);
 

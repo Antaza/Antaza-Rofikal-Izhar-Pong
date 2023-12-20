@@ -11,11 +11,16 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Pong");
         Debug.Log("Created by Antaza Rofikal Izhar");
     }
+
+    public void GotoMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     
     // Memunculkan log debug ketika ditekan
     public void Credit()
     {
-        Debug.Log("Created by Antaza Rofikal Izhar");
+        SceneManager.LoadScene("Credit");
     }
 
     // Keluar dari game
