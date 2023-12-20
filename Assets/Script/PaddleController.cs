@@ -7,8 +7,9 @@ public class PaddleController : MonoBehaviour
     public int speed;
     public KeyCode upKey;
     public KeyCode downKey;
+    public bool PUisActive;
 
-    private Rigidbody2D rig2d;
+    Rigidbody2D rig2d;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,11 @@ public class PaddleController : MonoBehaviour
         //MoveObject(movement);
 
         // code dipersingkat menjadi
-        MoveObject(GetInput());        
+        MoveObject(GetInput());
+        if (PUisActive == true)
+        {
+            rig2d.velocity *= 2;
+        }
     }
 
     Vector2 GetInput()
@@ -38,7 +43,7 @@ public class PaddleController : MonoBehaviour
             return Vector2.up * speed;
         }
 
-        else if (Input.GetKey(downKey))
+        if (Input.GetKey(downKey))
         {
             // ke bawah
             return Vector2.down * speed;
@@ -56,5 +61,20 @@ public class PaddleController : MonoBehaviour
 
         // transform diganti menjadi velocity
         rig2d.velocity = movement;
+    }
+    
+    public void ScaleChangerBigger()
+    {
+        // Memperpanjang paddle 2x lipat
+        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y *2, 1);
+    }
+    public void ScaleChangerSmaller()
+    {
+        // Memperpanjang paddle 2x lipat
+        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y /2, 1);
+    }
+    public void ActiveSU(bool active)
+    {
+        PUisActive = true;
     }
 }

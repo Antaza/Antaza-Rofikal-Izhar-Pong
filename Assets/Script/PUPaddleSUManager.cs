@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
-public class PUManager : MonoBehaviour
+public class PUPaddleSUManager : MonoBehaviour
 {
     public Transform spawnArea;
     public int maxPUAmount;
@@ -13,10 +12,9 @@ public class PUManager : MonoBehaviour
     public Vector2 puAreaMax;
     public List<GameObject> PowerUpTemplateList;
     List<GameObject> powerUpList;
-    public BallControll ballManager;
+    public PaddleController paddle;
 
     float timer;
-    float paddlePUTimer;
 
     void Start()
     {
@@ -37,7 +35,7 @@ public class PUManager : MonoBehaviour
         foreach (GameObject powerUp in powerUpList)
         {
             // Menghancurkan power up jika tidak di ambil dalam interval tertentu
-            StartCoroutine(DestroyPowerUp(powerUp, PuLifeTime));
+            StartCoroutine(DestroyPUScaleUp(powerUp, PuLifeTime));
         }
     }
 
@@ -88,9 +86,10 @@ public class PUManager : MonoBehaviour
         }
     }
 
-    IEnumerator DestroyPowerUp(GameObject powerUp, float interval)
+    IEnumerator DestroyPUScaleUp(GameObject powerUp, float interval)
     {
         yield return new WaitForSeconds(interval);
         RemovePowerUp(powerUp);
+        paddle.ScaleChangerSmaller();
     }
 }
